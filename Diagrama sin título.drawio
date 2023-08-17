@@ -1,51 +1,9 @@
-<mxfile host="app.diagrams.net" modified="2023-08-17T12:04:35.243Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="6_RnFLlXpZ4PDVDU_OFH" version="21.6.8" type="github">
-  <diagram name="Página-1" id="8k6c5dcPzxzUIK8Mi48m">
-    <mxGraphModel dx="794" dy="464" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2023-08-17T12:04:56.792Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" version="21.6.8" etag="wR_NDMKobKSxpgLYlQws" type="github">
+  <diagram name="Página-1" id="tURSqkJBklxlw_laNkZk">
+    <mxGraphModel>
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4WNAfiZ9To94CHlVaG5W-1" target="4WNAfiZ9To94CHlVaG5W-6">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-1" value="Inicio" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="40" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-2" value="Fin" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="550" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4WNAfiZ9To94CHlVaG5W-5" target="4WNAfiZ9To94CHlVaG5W-7">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-5" value="num2" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="210" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4WNAfiZ9To94CHlVaG5W-6" target="4WNAfiZ9To94CHlVaG5W-5">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-6" value="num1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="130" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4WNAfiZ9To94CHlVaG5W-7" target="4WNAfiZ9To94CHlVaG5W-9">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-7" value="suma=num1+num2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="290" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4WNAfiZ9To94CHlVaG5W-9" target="4WNAfiZ9To94CHlVaG5W-16">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-9" value="producto=num1*num2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="370" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="4WNAfiZ9To94CHlVaG5W-16" target="4WNAfiZ9To94CHlVaG5W-2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-16" value="suma,producto" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;" vertex="1" parent="1">
-          <mxGeometry x="330" y="450" width="120" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="4WNAfiZ9To94CHlVaG5W-30" value="Ej1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="250" y="18" width="40" height="30" as="geometry" />
-        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
