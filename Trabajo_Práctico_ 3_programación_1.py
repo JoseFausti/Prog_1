@@ -232,15 +232,25 @@ print(f"Higher number: {higher}")
 # suma de los dígitos que lo componen. La condición de corte es que se ingrese el número -1.
 # Al finalizar, mostrar cuántos de los números ingresados por el usuario fueron números pares.
 number=None
+list=[]
+counter=0
 while number != -1:
     sumatory = 0
     digit = []
     number=int(input("Insert a positive number (press -1 to scape): "))
-    for i in str(number):
-        digit.append(i)
-        sumatory = sumatory + int(i)
-    print(f"The digits are: {digit}")
-    print(f"The sumatory is: {sumatory}")
+    if number == -1:
+       break
+    else:
+      for i in str(number):
+          digit.append(i)
+          sumatory = sumatory + int(i)
+      if number % 2 == 0:
+          list.append(number)
+          counter += 1
+      print(f"The digits are: {digit}")
+      print(f"The sumatory is: {sumatory}")
+print(f"La cantidad de números pares son: {counter}")
+print(f"Números pares: {list}")
 
 # 23)_Crear un programa que permita al usuario ingresar los montos de las compras de un cliente
 # (se desconoce la cantidad de datos que cargará, la cual puede cambiar en cada ejecución),
