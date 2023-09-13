@@ -75,6 +75,7 @@ if user == "Batman" and password == "BruceWaine001":
         word=str(input()).lower()
         if word == "si":
             break
+    print("Hasta luego, señor Waine.")        
         
 
 
