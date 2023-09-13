@@ -22,8 +22,6 @@ if user != "Batman" or password != "BruceWaine001":
         print(f"{i} intentos restantes..")
         user=str(input("Ingrese su usuario: ")).title()
         password=str(input("Ingrese su contraseña: "))
-        if i == 0:
-            print("Ha agotado los intentos.")    
         if user != "Batman" or password != "BruceWaine001":
             continue
         else:
@@ -76,6 +74,7 @@ if user == "Batman" and password == "BruceWaine001":
         if word == "si":
             break
     print("Hasta luego, señor Waine.")        
-        
+else:
+    print("Ha agotado los intentos.")        
 
 
