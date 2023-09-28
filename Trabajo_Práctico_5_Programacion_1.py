@@ -1,5 +1,9 @@
 # 1)_Escribir una función que, dado un número de DNI, retorne True si el número es válido y False si no lo es. 
-# Para que un número de DNI sea válido debe tener entre 7 y 8 dígitos.
+# Para que un número de DNI sea válido debe tener entre 7 y 8 dígitos
+
+import time
+import os
+
 def validator(dni):
     if len(dni)== 7 or len(dni) == 8 :
         return True
@@ -15,10 +19,15 @@ if dni.isnumeric():
        print("DNI incorrecto, reinicie el programa..")
 else:
     print("DNI incorrecto, reinicie el programa..")    
+    
+time.sleep(3)    
+os.system("cls")    
+    
 
 # 2)_Escribir una función que, dado un string, retorne la longitud de la última palabra.
 # Se considera que las palabras están separadas por uno o más espacios. También podría haber espacios 
 # al principio o al final del string pasado por parámetro.
+
 def length(sentence):
     words = sentence.split()
     # Verificamos si la lista de palabras está vacía
@@ -33,6 +42,10 @@ if sentence.strip():
     print("La longitud de la última palabra de su oración es:", length(sentence))
 else:
     print("Oración incorrecta, reinicie el programa.")
+
+time.sleep(3)    
+os.system("cls")
+
 
 # 3)_Escribir un programa que permita al usuario obtener un identificador para cada uno de los socios de un club. 
 # Para eso ingresará nombre completo y número de DNI de cada socio, indicando que finalizará el procesamiento mediante el ingreso 
@@ -51,44 +64,92 @@ else:
 # DNI: 25469648
 # ID -> Maria7254
 import os
+import time
 
-def validator_2(dni):
-    if  7 == len(dni) == 8:
-        dni_verified = dni
-        return dni_verified
+def name_validator(completed_name):
+    name1 , name2 = "" , ""
+    name_parts = completed_name.split()
+    
+    if len(name_parts) == 1:
+        name1 = name_parts[0]
+    elif len(name_parts) == 2 and all(part.isalpha() for part in name_parts):
+        name1, name2 = name_parts[0], name_parts[1]
+    return name1, name2
+
+def validator_dni(dni):
+    if len(dni) in [7, 8] and dni.isdigit():
+        return dni
     else:
         return False
 
-def validator_3 (dni):
-    dni == False
-    while dni == False:
+def validator_dni2():
+    dni_verified = ""
+    while not dni_verified:
         os.system("cls")
         print("Incorrecto, intente de nuevo..")
-        dni_verified == input ("Ingrese correctamente el DNI: ")
-        if dni_verified == 
+        dni_verified = input("Ingrese correctamente el DNI: ")
+        if len(dni_verified) in [7, 8] and dni_verified.isdigit():
+            return dni_verified
 
-
-name = "__name__"
-while name is not None:
+while True:
     os.system("cls")
-    name = str(input("Ingrese su nombre completo en Formato: (nombre apellido): "))
-    dni = str(input("Ingrese su dni: "))
-    if dni.isalnum():
-        dni = validator_2(dni)
-        if dni == False:
-            dni_verified = validator_3(dni)
-       
-    else:
-        print("Incorrecto, intente de nuevo..")
+    completed_name = input("Ingrese su o sus nombres completos en Formato: (nombre1 nombre2): ").strip()
+    dni = input("Ingrese su DNI: ")
+
+    try:
+        name1 , name2 = name_validator(completed_name)
+    except ValueError:
+        name1 = name_validator(completed_name)
+
+    dni = validator_dni(dni)
+    if dni is False:
+        dni = validator_dni2()
+
+    surname = input("Ingrese su apellido: ")
+    if not surname.isalpha():
+        print("El apellido debe contener solo letras. Intente de nuevo...")
         continue
-    
 
+    print(f"ID: {name1} {len(surname)} {dni[-3:]}")
 
+    again_code = input("Desea continuar? SI/NO: ").upper()
+    if again_code != "SI":
+        break
 
-
+time.sleep(3)
+os.system("cls")
 
 # 4.Crea un programa que pida dos número enteros al usuario y diga si alguno de ellos es múltiplo del otro. 
 # Crea una función que reciba los dos números, y devuelve si el primero es múltiplo del segundo.
+
+def is_multiple_number(number1,number2):
+    if number1 % number2 == 0:
+        print(f"{number1} es múltiplo de {number2}")
+    elif number2 % number1 == 0:    
+        print(f"{number2} es múltiplo de {number1}")
+    else:
+        print("No son múltiplos entre si...")
+
+
+number1 = None
+number2 = None
+
+while (number1 and number2) != None:
+    try:
+        numbers = input("Ingrese dos numeros entreros separados por coma: ").isalnum()
+        number1 , number2 = numbers.split(",")
+        number1 = int(number1)
+        number2 = int(number2)
+        
+        multiple = is_multiple_number(number1 , number2)
+    except ValueError():
+        print("Hubo un error , intentelo de nuevo..")
+        continue
+    
+
+time.sleep(3)
+os.system("cls")
+
 
 # 5.Crear una función que calcule la temperatura media de un día a partir de la temperatura máxima y mínima. 
 # Crear un programa principal, que utilizando la función anterior, vaya pidiendo la temperatura máxima y mínima de cada día 
