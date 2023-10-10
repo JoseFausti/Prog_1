@@ -26,7 +26,7 @@ while True:
 
     try:
         option_1 = input("Ingrese la 1º posicion en formato (posicion 1 x posicion2): ")
-        position_1, position_2 = map(int, option_1.split("x"))
+        position_1, position_2 = map(int, option_1.strip().split("x"))
 
         if position_1 < 0 or position_1 >= 4 or position_2 < 0 or position_2 >= 4:
             print("Ingresó algún valor incorrecto, intente de nuevo...")
@@ -34,7 +34,7 @@ while True:
             continue
 
         option_2 = input("Ingrese la posición en formato (posicion 1 x posicion2): ")
-        position_3, position_4 = map(int, option_2.split("x"))
+        position_3, position_4 = map(int, option_2.strip().split("x"))
 
         if position_3 < 0 or position_3 >= 4 or position_4 < 0 or position_4 >= 4:
             print("Ingresó algún valor incorrecto, intente de nuevo...")
