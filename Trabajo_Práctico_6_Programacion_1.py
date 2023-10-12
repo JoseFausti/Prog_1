@@ -63,9 +63,69 @@ while True:
 # a)_la diagonal principal.
 # b)_la diagonal inversa.
 
+table_4x4 = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 1, 2, 3],
+    [4, 5, 6, 7]
+]
+
+print()
+print("Matriz Normal")
+print()
+
+for rows in table_4x4:
+    for columns in range(0,4,1):
+        print(rows[columns],end=" ")
+    print()
+
+print()
+print("Diagonal Principal")
+print()
+
+principal_diagonal = []
+
+for i in range(0,len(table_4x4),1):
+    principal_diagonal.append(table_4x4[i][i])
+
+string = ""
+for diagonal_element in principal_diagonal:
+    print(string , diagonal_element)
+    string += "  "
+
+print()
+print("Diagonal Inversa")
+print()
+
+reverse_diagonal = []
+j = 0
+for i in range(len(table_4x4)-1,-1,-1):
+    reverse_diagonal.append(table_4x4[j][i])
+    j += 1
+
+string = ""
+for diagonal_element in reverse_diagonal:
+    print(string , diagonal_element)
+    string += "  "
+
 # 11)_Escribir un programa que guarde en una variable el diccionario 
 # {'Euro':'€', 'Dollar':'$', 'Yen':'¥'},pregunte al usuario por una divisa y muestre su símbolo
 #  o un mensaje de aviso si la divisa no está en el diccionario.
+
+foreign_exchange = {'Euro':'€', 'Dollar':'$', 'Yen':'¥'}
+
+while True:
+    try:
+        exchange = input("Ingrese una divisa: ")
+        if exchange in foreign_exchange:
+            print("Simbolo de su divisa: ",foreign_exchange[exchange])
+        else:
+            print("Esa divisa no se encuentra en el diccionario")    
+        time.sleep(3)    
+        break    
+    except(ValueError,TypeError,KeyError):
+        print("Hubo un error, intente de nuevo..")
+        continue
 
 # 12)_Escribir un programa que pregunte al usuario su nombre, edad, dirección y teléfono y lo
 # guarde en un diccionario.Después debe mostrar por pantalla el mensaje ‘<nombre> tiene <edad> 
