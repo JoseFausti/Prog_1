@@ -52,6 +52,7 @@ while True:
             print("Ha completado el juego!")
             print(empty_table)
             time.sleep(7)
+            break
 
     except (ValueError, TypeError, KeyError, IndexError):
         print("Hubo un error, intente de nuevo.")
