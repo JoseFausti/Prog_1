@@ -1,3 +1,170 @@
+# 1)_Solicitar al usuario que ingrese números, estos deben guardarse en una lista.
+#Para finalizar el usuario debe ingresar 0, el cual no debe guardarse.
+
+list_number=[]
+while True:
+   number=int(input('Por favor ingrese numeros en la lista , si desea terminar ingrese 0  '))
+   if number == 0 :
+        break
+   else :
+     list_number+=(number ,)
+
+# 2)_A continuación, solicitar al usuario que ingrese un número y, 
+# si el número está en la lista, eliminar su primera ocurrencia.
+# Mostrar un mensaje si no es posible eliminar.
+
+number=int(input('ingrese un numero a comparar '))
+list_number.remove(number)
+print(list_number)
+
+# 3)_Imprimir la sumatoria de todos los números de la lista.
+
+summation = 0
+
+for elemento in list_number:
+    summation += elemento
+
+print(summation)
+
+# 4)_Solicitar al usuario otro número y crear una lista con los elementos de la lista original, 
+# que sean menores que el número dado. Imprimir esta nueva lista, iterando por ella.
+
+list1 = [5, 6, 7, 8, 10, 11, 12, 13]
+list2 = []
+
+# Solicitar al usuario un número y convertirlo a entero
+number = int(input("Ingrese un número: "))
+
+# Iterar por la lista original y agregar elementos menores al número dado a la nueva lista
+for element in list1:
+    if element < number:
+        list2.append(element)
+
+for i, element in enumerate(list2):
+    if i == len(list2) - 1:
+        print(element, end="" "\n")
+    else:
+        print(element, end="-")
+
+# 5)_Generar e imprimir una nueva lista que contenga como elementos a tuplas, cada una compuesta por un número 
+# de la lista original y la cantidad de veces que aparece en ella. Por ejemplo, si la lista original es [5,16,2,5,57,5,2], 
+# la nueva lista contendrá: [(5,3),(16,1),(2,2),(57,1)]
+
+list_origin = [5, 16, 2, 5, 57, 5, 2]
+tuple_list = []
+
+for number in list_origin:
+    count = list_origin.count(number)
+    # Verificar si la tupla ya existe en la lista
+    if (number, count) not in tuple_list:
+        tuple_list.append((number, count))
+
+print(tuple_list)
+
+# 6)_Solicitar al usuario que ingrese los nombres de pila de los alumnos de nivel primario de una escuela, 
+# finalizando al ingresar 'x'. A continuación, solicitar que ingrese los nombres de los alumnos de 
+# nivel secundario, finalizando al ingresar 'x'.
+# a)_Informar los nombres de todos los alumnos de nivel primario y de los de nivel secundario, sin repeticiones.
+# b)_Informar qué nombres se repiten entre los alumnos de nivel primario y secundario.
+# c)_Informar qué nombres de nivel primario no se repiten en los de nivel secundario.
+
+primary_students = []
+
+#pedimos al usuario que ingrese los alumnos de primaria
+while True:
+  student = input("Ingrese el nombre de un alumno de primaria o 'x' para finalizar: ")
+  
+  #validamos que si es una x no este vacio el array para finalizar
+  if student == "x":
+    if primary_students == []:
+      print("no se puede terminar con la lista vacia")
+      continue
+    else:
+      break
+
+  #validamos que por lo menos ingrese un nombre y apellido 
+  if len(student.split()) != 2:
+    print("alumno no valido solo colocar nombre y apellido ")
+    continue
+
+  primary_students.append(student)
+
+secundary_students = []
+
+#pedimos al usuario que ingrese los alumnos de secundaria
+while True:
+  student = input("Ingrese el nombre de un alumno de secundaria o 'x' para finalizar: ")
+  
+  #validamos que si es una x no este vacio el array para finalizar
+  if student == "x":
+    if secundary_students == []:
+      print("no se puede terminar con la lista vacia")
+      continue
+    else:
+      break
+  
+  #validamos que por lo menos ingrese un nombre y apellido 
+  if len(student.split()) != 2:
+    print("alumno no valido solo colocar nombre y apellido ")
+    continue
+  
+  secundary_students.append(student)
+
+#creamos array para rellenar con los nombres que se repiten y los que no
+repeated_students = []
+secundary_students_no_repeated = secundary_students
+primary_students_no_repeated = primary_students
+
+#buscamos los nombres que se repiten y los agregamos, y eliminamos los que se repiten de las otras listas 
+for i in primary_students:
+  if i in secundary_students:
+    repeated_students.append(i)
+    primary_students_no_repeated.remove(i)
+    secundary_students_no_repeated.remove(i)
+
+#mostramos los arrays
+print("\nAlumnos no repetidos de primaria: ")
+for i in primary_students_no_repeated:
+  print(i)
+
+print("\nAlumnos no repetidos de secundaria: ")
+for i in secundary_students_no_repeated:
+  print(i)
+
+print("\nAlumnos de repetidos: ")
+for i in repeated_students:
+  print(i)
+
+print("")
+
+# 7)_Escribir un programa que procese strings ingresados por el usuario.
+# La lectura finaliza cuando se hayan procesado 50 strings. Al finalizar, informar
+# la cantidad total de ocurrencias de cada carácter, en todos los strings ingresados.
+# Ejemplo:
+# 'r':5
+# '%':3
+# 'a':8
+# '9':1
+
+occurrences = {}
+
+#pedimos que ingrese 50 arrays
+for i in range(50):
+  sentence = input(f"{i}.Ingrese una frase: ")
+
+  #leemos caracter por caracter y los agregamos al diccionario
+  for char in sentence:
+    if char in occurrences:
+      occurrences[char] += 1
+    else:
+      occurrences[char] = 1
+
+#mostramos el diccionario
+for char, count in occurrences.items():
+  print(f"{char}:{count}")
+
+  
+
 # 9_Escribir un programa que simule el juego clásico de Memoria (Memotest)
 # utilizando matrices. El juego consiste en un tablero de cartas boca abajo y el objetivo es 
 # encontrar todas las parejas de cartas iguales.
@@ -132,7 +299,65 @@ while True:
 # guarde en un diccionario.Después debe mostrar por pantalla el mensaje ‘<nombre> tiene <edad> 
 # años, vive en <dirección> y su número de teléfono es <teléfono>’.
 
+def phone_validator(phone_number):
+    if phone_number.isnumeric() and len(phone_number) == 8:
+        return True
+    return False
+
+def age_validator(age):
+    if age.isnumeric():
+        return True
+    return False
+
+name = input("Ingrese su nombre: ")
+valid_age = False
+while not valid_age:
+    age_input = input("Ingrese su edad: ")
+    if age_validator(age_input):
+        valid_age = True
+    else:
+        print("La edad ingresada es incorrecta.")
+
+address = input("Ingrese su dirección: ")
+valid_phone = False
+while not valid_phone:
+    phone_input = input("Ingrese su número de teléfono: ")
+    if phone_validator(phone_input):
+        valid_phone = True
+    else:
+        print("El número ingresado no es válido.")
+
+personal_information = {
+    "nombre": name,
+    "edad": int(age_input),
+    "dirección": address,
+    "teléfono": int(phone_input)
+}
+
+message = f"{personal_information['nombre']} tiene {personal_information['edad']} años, vive en {personal_information['dirección']} y su número de teléfono es {personal_information['teléfono']}."
+
+print(message)
+
 # 13)_Escribir un programa que guarde en un diccionario los precios de las frutas de la tabla,
 #  pregunte al usuario por una fruta, un número de kilos y muestre por pantalla el precio 
 # de ese número de kilos de fruta. Si la fruta no está en el diccionario debe mostrar un 
 # mensaje informando de ello.
+
+fruits = {
+    'manzana': 400,
+    'banana': 450,
+    'uva': 780,
+    'pera': 360,
+    'naranja': 530,
+    'pomelo': 700,
+    'mandarina': 460,
+}
+
+buy_fruit = input("Ingrese una fruta que desee comprar: ")
+if buy_fruit not in fruits:
+    print("No tenemos esa fruta.")
+else:
+    kg = float(input("¿Cuántos kilos quiere? "))
+    price_per_kg = fruits[buy_fruit]
+    total_price = price_per_kg * kg
+    print(f"El precio de {kg} kilos de {buy_fruit} es: {total_price}")
