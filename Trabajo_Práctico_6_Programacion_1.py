@@ -163,7 +163,126 @@ for i in range(50):
 for char, count in occurrences.items():
   print(f"{char}:{count}")
 
-  
+# 8)_Diez equipos de la liga inter-barrial identificados con los números 
+#  1, 2, 3, 4, …, 10, participaron en un campeonato de fútbol con modalidad 
+#  todos contra todos.
+#  Escriba un programa que:
+#   _ Lea el cuadro de goles en un arreglo de dos dimensiones.
+#   _ Muestre para cada equipo la cantidad de triunfos, empates y derrotas.
+#	_ Muestre la diferencia entre el total de goles marcados y el total de goles recibidos.
+#	_ Determine la cantidad de puntos obtenidos por cada equipo.
+
+
+print("     Goles anotados en cada encuentro     ")
+print("------------------------------------------")
+array= [["G" , 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [1   , 0, 4, 2, 1, 0, 4, 2, 5, 3, 2 ],
+        [2   , 5, 0, 3, 4, 2, 1, 2, 0, 3, 2 ],
+        [3   , 0, 2, 0, 1, 2, 1, 5, 3, 2, 1 ],
+        [4   , 1, 0, 2, 0, 1, 1, 2, 5, 0, 3 ],
+        [5   , 1, 4, 2, 5, 0, 2, 0, 2, 1, 3 ],
+        [6   , 1, 2, 1, 0, 5, 0, 1, 4, 2, 1 ],
+        [7   , 5, 4, 0, 3, 4, 3, 0, 2, 1, 2 ],
+        [8   , 2, 2, 1, 2, 3, 1, 5, 0, 1, 3 ],
+        [9   , 4, 3, 3, 1, 2, 3, 2, 1, 0, 3 ],
+        [10  , 1, 2, 6, 2, 1, 2, 1, 4, 2, 0 ]]
+
+#----------------------------------------------------#
+
+team_results = [["T","G","P","E"],
+                [ 1,  0,  0,  0 ],
+                [ 2,  0,  0,  0 ],
+                [ 3,  0,  0,  0 ],
+                [ 4,  0,  0,  0 ],
+                [ 5,  0,  0,  0 ],
+                [ 6,  0,  0,  0 ],
+                [ 7,  0,  0,  0 ],
+                [ 8,  0,  0,  0 ],
+                [ 9,  0,  0,  0 ],
+                [ 10, 0,  0,  0 ]]
+
+#----------------------------------------------------#
+
+goals_count  = [["T","GM","GR","DIF"],
+                [ 1 ,  0,  0  ,  0  ],
+                [ 2 ,  0,  0  ,  0  ],
+                [ 3 ,  0,  0  ,  0  ],
+                [ 4 ,  0,  0  ,  0  ],
+                [ 5 ,  0,  0  ,  0  ],
+                [ 6 ,  0,  0  ,  0  ],
+                [ 7 ,  0,  0  ,  0  ],
+                [ 8 ,  0,  0  ,  0  ],
+                [ 9 ,  0,  0  ,  0  ],
+                [ 10,  0,  0  ,  0  ]]
+
+#----------------------------------------------------#
+
+team_points = [["T","P"],
+                [ 1,  0 ],
+                [ 2,  0 ],
+                [ 3,  0 ],
+                [ 4,  0 ],
+                [ 5,  0 ],
+                [ 6,  0 ],
+                [ 7,  0 ],
+                [ 8,  0 ],
+                [ 9,  0 ],
+                [ 10, 0 ]]
+
+#----------------------------------------------------#
+
+#recorremos los resultados del array primcipal
+for i in range(1,11,1):
+    for j in range(1,11,1):
+        #contamos la cantidad de goles ganados, perdidos y empatados
+        if i == j:
+            continue
+        if array[i][j] == array[j][i] :
+            team_results[i][3] += 1
+        elif array[i][j] > array[j][i]:
+            team_results[i][1] += 1
+        else:
+            team_results[i][2] += 1
+
+        #sumamos el total de goles marcados y recibidos
+        goals_count[i][1] += array[i][j]
+        goals_count[i][2] += array[j][i]
+    goals_count[i][3] += goals_count[i][1] - goals_count[i][2]
+
+    #contamos los puntos de cada equipo
+    team_points[i][1] += team_results[i][1]*3 + team_results[i][3]*1
+
+#Mostramos todos los arrays
+for i in array:
+    for j in i:
+        print(j, end='   ')
+    print()
+
+print("------------------------------------------")
+
+print("RESULTADOS")
+for i in team_results:
+    for j in i:
+        print(j, end='   ')
+    print()
+
+print("------------------------------------------")
+
+print("COMPARACIÓN")
+for i in goals_count:
+    for j in i:
+        print(j, end='    ')
+    print()
+
+print("------------------------------------------")
+
+print("PUNTOS")
+for i in team_points:
+    for j in i:
+        print(j, end='    ')
+    print()
+    
+print("------------------------------------------")  
 
 # 9_Escribir un programa que simule el juego clásico de Memoria (Memotest)
 # utilizando matrices. El juego consiste en un tablero de cartas boca abajo y el objetivo es 
