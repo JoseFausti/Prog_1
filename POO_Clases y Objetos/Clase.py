@@ -73,7 +73,7 @@ class Motorbike:
         self.weight = weight
 
     def start(self):
-        if self.motor == False:
+        if self.engine == False:
             print("Se encendió el motor")
             self.engine = True
         else:
