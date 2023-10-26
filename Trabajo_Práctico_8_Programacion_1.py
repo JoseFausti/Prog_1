@@ -1,3 +1,35 @@
+"""1.	Escribir una función que reciba un número positivo n y devuelva la cantidad de dígitos que tiene."""
+def f(n):
+    s=str(n)
+    return len(s)
+while True:
+    try:
+        n=int(input("ingrese un valor positivo: "))
+        if n:   
+            result = f(n)
+            break
+    except(ValueError,TypeError,KeyError):
+        print("hubo un error")
+        continue
+print(result)
+"""2.	Escribir una función que reciba 2 enteros n y b y devuelva True si n es potencia de b."""
+def f(n,b):
+    if n % b == 0 :
+        return True
+    else: 
+        return False    
+while True:
+    try:
+        b=int(input("ingrese un numero: "))
+        n=int(input("ingrese un numero que crea que es potencia del primero: "))
+        break
+    except(ValueError,KeyError,TypeError):
+        print("hubo un error")
+        continue
+if f(n,b) == True:
+    print("n es potencia de b")
+else:
+    print("n no es potencia de b")
 # 7)_Implemente un algoritmo, usando una función recursiva, que resuelva la siguiente sumatoria:
 # K(n, p) = p + 2 ∗ p + 3 ∗ p + 4 ∗ p + … + n ∗ p
 # El programa debe pedir al usuario que ingrese un número n, y un número d,
