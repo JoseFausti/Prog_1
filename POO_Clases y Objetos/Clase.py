@@ -86,5 +86,5 @@ class Motorbike:
         else:
             print("El motor ya estaba apagado")
 
-    def price(self):
+    def method_price(self):
         return self.price      
