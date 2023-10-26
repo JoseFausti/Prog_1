@@ -16,5 +16,5 @@ print(f"El precio de la motocicleta {motorbike_1.brand} , {motorbike_1.model} es
 
 # Consulta desde la clase:
 
-print(f"El precio de la motocicleta {motorbike_1.brand} , {motorbike_1.model} es de: {motorbike_1.price()}")
+print(f"El precio de la motocicleta {motorbike_1.brand} , {motorbike_1.model} es de: {motorbike_1.method_price()}")
 
