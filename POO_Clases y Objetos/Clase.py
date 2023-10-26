@@ -62,15 +62,15 @@ class Motorbike:
     engine = False
     
     def __init__(self,color,plate,fuel_lts,wheels,brand,model,fabrication_date,max_speed,weight):
-        self.__color = color
-        self.__plate = plate
-        self.__fuel_lts = fuel_lts
-        self.__wheels= wheels
-        self.__brand= brand
-        self.__model = model
-        self.__fabrication_date = fabrication_date
-        self.__max_speed = max_speed
-        self.__weight = weight
+        self.color = color
+        self.plate = plate
+        self.fuel_lts = fuel_lts
+        self.wheels= wheels
+        self.brand= brand
+        self.model = model
+        self.fabrication_date = fabrication_date
+        self.max_speed = max_speed
+        self.weight = weight
 
     def start(self):
         if self.motor == False:
