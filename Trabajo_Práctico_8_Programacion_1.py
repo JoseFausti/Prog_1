@@ -74,3 +74,15 @@ print("Resultado de la sumatoria de productos: ",result)
 # del triángulo son todos unos. Cualquier otro valor se calcula sumando los dos valores contiguos
 # de la fila de arriba. Escribí la función recursiva pascal(n, k) que calcula el valor que se
 # encuentra en la fila n y la columna k.
+
+def pascal(n, k):
+    if k == 0 or n == k:
+        return 1
+    else:
+        return pascal(n - 1, k - 1) + pascal(n - 1, k)
+
+# Ejemplo de uso
+n = 4  # Fila 4
+k = 2  # Columna 2
+resultado = pascal(n, k)
+print(f'El valor en la fila {n} y columna {k} es: {resultado}')
