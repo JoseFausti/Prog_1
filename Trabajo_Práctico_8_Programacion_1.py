@@ -86,3 +86,23 @@ n = 4  # Fila 4
 k = 2  # Columna 2
 resultado = pascal(n, k)
 print(f'El valor en la fila {n} y columna {k} es: {resultado}')
+#9) Escribí una función recursiva combinaciones(lista, k) que reciba una lista de caracteres únicos, 
+# y un número k, e imprima todas las posibles cadenas de longitud k formadas con los caracteres 
+# dados (permitiendo caracteres repetidos).
+
+def combinations(listt, k):
+    def prefix_combinations(prefix):
+        if len(prefix) == k:
+            print(prefix)
+            return
+        for character in listt:
+            prefix_combinations(prefix + character)
+    
+    if k <= 0 or not listt:
+        return
+    
+    prefix_combinations("")
+
+caracteres = ["A", "B", "C","D"]
+k = 3
+combinations(caracteres, k)
