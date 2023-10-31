@@ -86,7 +86,8 @@ n = 4  # Fila 4
 k = 2  # Columna 2
 resultado = pascal(n, k)
 print(f'El valor en la fila {n} y columna {k} es: {resultado}')
-#9) Escribí una función recursiva combinaciones(lista, k) que reciba una lista de caracteres únicos, 
+
+# 9)_ Escribí una función recursiva combinaciones(lista, k) que reciba una lista de caracteres únicos, 
 # y un número k, e imprima todas las posibles cadenas de longitud k formadas con los caracteres 
 # dados (permitiendo caracteres repetidos).
 
