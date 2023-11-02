@@ -71,7 +71,6 @@ while True:
                 row.append(list(dna))
             
         # Llamada de la Función
-        print(matrix)
         is_mutatnt(matrix)   
 
     except(ValueError,KeyError,TypeError):
