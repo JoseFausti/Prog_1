@@ -6,41 +6,47 @@
 # •	mostrar(): Muestra los datos de la persona.
 # •	esMayorDeEdad(): Devuelve un valor lógico indicando si es mayor de edad.
 
-
-
 class Person:
-
     def __init__(self,name,age,dni):
-        self.name = name
-        self.age = age
-        self.dni = dni
-
-    def gettername(self):
-        return self.name    
+        self.__private_name = name
+        self.__private_age = age
+        self.__private_dni = dni
+        
+    @property # Decorador
+    def private_name(self):
+        return self.__private_name    
     
-    def settername(self,name):
-        self.name = name
+    @private_name.setter # Decorador - propiedad setter
+    def private_name(self,name):
+        self.__private_name = name
 
-    def getterage(self):
-        return self.age    
+    @property 
+    def private_age(self):
+        return self.__private_age
     
-    def setterage(self,age):
+    @private_age.setter
+    def private_age(self,age):
         if age >= 0:
-            self.age = age
+            self.__private_age = age
         else:
             print("La edad no puede tomar valores negativos")
 
-    def getterdni(self):
-        return self.dni  
+    @property
+    def private_dni(self):
+        return self.__private_dni 
 
-    def setterdni(self,dni):
+    @private_dni.setter
+    def private_dni(self,dni):
         if 7 <= len(dni) <= 8:    
-            self.dni = dni
+            self.__private_dni = dni
         else:
-            print("Número de dni incorrecto")           
+            print("Número de dni incorrecto")     
 
-    def EsMayorDeEdad(self):        
-        if self.age >= 18:
+    def show(self):
+        print(f"Nombre: {self.__private_name}, Edad: {self.__private_age}, DNI: {self.__private_dni}")              
+
+    def isOlder(self):        
+        if self.__private_age >= 18:
             return True
         else:
             return False
