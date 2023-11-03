@@ -43,11 +43,11 @@ def is_mutant(dna):
                 if row_counter >= 4:  
                     mutant_counter += 1  
     # Verticales
-    for columns in range(5): # Toma la longitud de la primer fila de la lista
+    for columns in range(6): # Toma la longitud de la primer fila de la lista
         # Contador de columnas
         column_counter = 1
-        for j in range(5):
-            if dna[columns][j] == dna[columns+1][j]:
+        for rows in range(5):
+            if dna[rows][columns] == dna[rows+1][columns]:
                 column_counter +=1
                 # Posible mutante
                 if column_counter >= 4:
