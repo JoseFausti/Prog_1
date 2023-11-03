@@ -1,7 +1,7 @@
 # Examen parcial
 
 # Magneto quiere reclutar la mayor cantidad de mutantes para poder luchar contra los X-Mens.
-#Te ha contratado a ti para que desarrolles un programa que detecte si un humano es mutante basándose
+# Te ha contratado a ti para que desarrolles un programa que detecte si un humano es mutante basándose
 # en su secuencia de ADN.
 
 # Para eso te ha pedido crear un programa con un método o función booleana, llamada is_mutant(dna),
@@ -25,55 +25,141 @@
 # presencia de genes mutantes o no y mostrar el resultado por pantalla al usuario.
 # Subir a Github el proyecto con los casos de prueba.
 
-import random
+# FUNCIONES
 
-# Función
-def is_mutatnt(dna):
+# Funcion Para verificar si es mutante
+def is_mutant(dna):
     # Contador para Verificar si es mutante
     mutant_counter = 0
 
-    # Filas Horizontales
+    # Horizontales
     for rows in dna:
         # Contador de filas
         row_counter = 0
-        for i in range(0,6,1):
+        for i in range(5):
             if rows[i] == rows[i+1]:
                 row_counter += 1
             # Posible mutante    
             if row_counter >= 4:  
                 mutant_counter += 1  
     
-    # Filas 
+    # Verticales
+    for columns in range(5): # Toma la longitud de la primer fila de la lista
+        # Contador de columnas
+        column_counter = 0
+        for j in range(5):
+            if dna[columns][j] == dna[columns+1][j]:
+                column_counter +=1
+                # Posible mutante
+                if column_counter >= 4:
+                    mutant_counter += 1
 
-    return 
+    # Diagonales                
+    for i in range(3):
+        # Contador de diagonales
+        diagonal_counter = 0
+        #----------------------------------#
+        # Diagonal Principal
+        if dna[i][i] == dna[i+1][i+1]:
+           diagonal_counter +=1 
+        # Diagonales Superiores   
+        if dna[i][i+1] == dna[i+1][i+2]:
+           diagonal_counter +=1 
+        if dna[i][i+2] == dna[i+1][i+3]:
+            diagonal_counter +=1      
+        # Diagonales Inferiores 
+        if dna[i+1][i] == dna[i+2][i+1]:
+           diagonal_counter +=1 
+        if dna[i+2][i] == dna[i+3][i+1]:
+           diagonal_counter +=1 
+        #----------------------------------# 
+        # Diagonal Opuesta 
+        if dna[i][(len(dna)-1)-i] == dna[i+1][(len(dna)-2)-i]:
+           diagonal_counter +=1 
+        # Diagonales Opuestas Superiores 
+        if dna[i][(len(dna)-2)-i] == dna[i+1][(len(dna)-3)-i]:
+           diagonal_counter +=1 
+        if dna[i][(len(dna)-3)-i] == dna[i+1][(len(dna)-4)-i]:
+           diagonal_counter +=1
+        # Diagonales Opuestas Inferiores 
+        if dna[i+1][(len(dna)-1)-i] == dna[i+2][(len(dna)-2)-i]:
+           diagonal_counter +=1 
+        if dna[i+2][(len(dna)-1)-i] == dna[i+3][(len(dna)-2)-i]:
+           diagonal_counter +=1
+        #----------------------------------#        
+        # Posible mutante
+        if diagonal_counter >= 4:
+            mutant_counter += 1
+    # Retorno
+    if mutant_counter >= 2:
+        return True
+    else:
+        return False
+    
+# Funcion Para Imprimir matrices 
+def show_result(matrix):
+    is_mutant_result = is_mutant(matrix)
+    
+    print("----------------------------------")
+    for row in matrix:
+        print(row)   
+    print()
+    
+    if is_mutant_result == True:
+        print("Es mutante")
+    else:
+        print("No es mutante")  
+    print("----------------------------------")
 
+# ALGORITMO PRINCIPAL
+
+# 1º Prueba: Mutante
 # Inicializamos la matriz
-matrix = [
-    [],
-    [],
-    [],
-    [],
-    [],
-    [],
-]
+mutant_matrix = []
 # Bucle
 while True:
-    try:
-        # Ingreso de Datos:
-        for row in matrix:
-            dna = str(input("Ingrese una secuencia de Aminoácidos (A,T,G,C), Ejemplo: 'ACTGCG'")).upper()
-            # Validador
-            if len(dna) > 6 or not dna.isalpha():
-                print("Ingreso incorrecto")
-                continue
-            # Insercion de datos en la matriz
-            if all(letter in "ATCG" for letter in dna):
-                row.append(list(dna))
-            
-        # Llamada de la Función
-        is_mutatnt(matrix)   
-
-    except(ValueError,KeyError,TypeError):
-        print("Algun valor ingresado fue incorrecto, intente de nuevo..")
-        continue
-
+    # Inicializamos el contador
+    i = 0
+    print("----------------------------------")
+    print("1º PRUEBA")
+    print("----------------------------------")
+    # Ingreso de Datos:
+    while i < 6:
+        dna = str(input("Ingrese una secuencia de Aminoácidos (A,T,G,C), Ejemplo: 'ACTGCG': " )).upper()
+        # Validador
+        if len(dna) != 6 or not dna.isalpha() or not all(letter in "ATCG" for letter in dna):
+            print("Ingreso incorrecto")
+            continue
+        # Insercion de datos en la matriz
+        dna_row = list(dna)
+        mutant_matrix.append(dna_row)
+        i += 1    
+    break
+# 2º Prueba  
+# Inicializamos la matriz  
+no_mutant_matrix = []
+# Bucle
+while True:
+    # Inicializamos el contador
+    i = 0
+    print("----------------------------------")
+    print("2º PRUEBA")
+    print("----------------------------------")
+    # Ingreso de Datos:
+    while i < 6:
+        dna = str(input("Ingrese una secuencia de Aminoácidos (A,T,G,C), Ejemplo: 'ACTGCG': ")).upper()
+        # Validador
+        if len(dna) != 6 or not dna.isalpha() or not all(letter in "ATCG" for letter in dna):
+            print("Ingreso incorrecto")
+            continue
+        # Insercion de datos en la matriz
+        dna_row = list(dna)
+        no_mutant_matrix.append(dna_row)
+        i += 1   
+    break     
+# Llamada de la Función y Resultado Final
+# 1º Prueba
+show_result(mutant_matrix)
+# 2º Prueba
+show_result(no_mutant_matrix)
+    
