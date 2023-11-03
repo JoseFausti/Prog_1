@@ -35,61 +35,47 @@ def is_mutant(dna):
     # Horizontales
     for rows in dna:
         # Contador de filas
-        row_counter = 0
+        row_counter = 1
         for i in range(5):
             if rows[i] == rows[i+1]:
                 row_counter += 1
-            # Posible mutante    
-            if row_counter >= 4:  
-                mutant_counter += 1  
-    
+                # Posible mutante    
+                if row_counter >= 4:  
+                    mutant_counter += 1  
     # Verticales
     for columns in range(5): # Toma la longitud de la primer fila de la lista
         # Contador de columnas
-        column_counter = 0
+        column_counter = 1
         for j in range(5):
             if dna[columns][j] == dna[columns+1][j]:
                 column_counter +=1
                 # Posible mutante
                 if column_counter >= 4:
                     mutant_counter += 1
-
     # Diagonales                
+    #----------------------------------#
+    # Diagonal Principal
     for i in range(3):
         # Contador de diagonales
-        diagonal_counter = 0
-        #----------------------------------#
-        # Diagonal Principal
-        if dna[i][i] == dna[i+1][i+1]:
-           diagonal_counter +=1 
-        # Diagonales Superiores   
-        if dna[i][i+1] == dna[i+1][i+2]:
-           diagonal_counter +=1 
-        if dna[i][i+2] == dna[i+1][i+3]:
-            diagonal_counter +=1      
-        # Diagonales Inferiores 
-        if dna[i+1][i] == dna[i+2][i+1]:
-           diagonal_counter +=1 
-        if dna[i+2][i] == dna[i+3][i+1]:
-           diagonal_counter +=1 
-        #----------------------------------# 
-        # Diagonal Opuesta 
-        if dna[i][(len(dna)-1)-i] == dna[i+1][(len(dna)-2)-i]:
-           diagonal_counter +=1 
-        # Diagonales Opuestas Superiores 
-        if dna[i][(len(dna)-2)-i] == dna[i+1][(len(dna)-3)-i]:
-           diagonal_counter +=1 
-        if dna[i][(len(dna)-3)-i] == dna[i+1][(len(dna)-4)-i]:
-           diagonal_counter +=1
-        # Diagonales Opuestas Inferiores 
-        if dna[i+1][(len(dna)-1)-i] == dna[i+2][(len(dna)-2)-i]:
-           diagonal_counter +=1 
-        if dna[i+2][(len(dna)-1)-i] == dna[i+3][(len(dna)-2)-i]:
-           diagonal_counter +=1
-        #----------------------------------#        
-        # Posible mutante
-        if diagonal_counter >= 4:
-            mutant_counter += 1
+        diagonal_counter = 1
+        for j in range(3):
+            if dna[i][j] == dna[i + 1][j + 1] == dna[i + 2][j + 2] == dna[i + 3][j + 3]:
+                diagonal_counter +=1
+                # Posible mutante    
+                if diagonal_counter >= 4:  
+                    mutant_counter += 1  
+    #----------------------------------# 
+    # Diagonal Opuesta 
+    for i in range(3):
+        # Contador de diagonales
+        diagonal_counter = 1
+        for j in range(3,6):
+            if dna[i][j] == dna[i + 1][j - 1] == dna[i + 2][j - 2] == dna[i + 3][j - 3]:
+                diagonal_counter +=1  
+                # Posible mutante    
+                if diagonal_counter >= 4:  
+                    mutant_counter += 1      
+    #----------------------------------#       
     # Retorno
     if mutant_counter >= 2:
         return True
@@ -162,4 +148,3 @@ while True:
 show_result(mutant_matrix)
 # 2º Prueba
 show_result(no_mutant_matrix)
-    
