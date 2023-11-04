@@ -60,7 +60,7 @@ def is_mutant(dna):
         diagonal_counter = 1
         for j in range(3):
             if dna[i][j] == dna[i + 1][j + 1] == dna[i + 2][j + 2] == dna[i + 3][j + 3]:
-                diagonal_counter +=1
+                diagonal_counter += 3
                 # Posible mutante    
                 if diagonal_counter >= 4:  
                     mutant_counter += 1  
@@ -71,7 +71,7 @@ def is_mutant(dna):
         diagonal_counter = 1
         for j in range(3,6):
             if dna[i][j] == dna[i + 1][j - 1] == dna[i + 2][j - 2] == dna[i + 3][j - 3]:
-                diagonal_counter +=1  
+                diagonal_counter += 3  
                 # Posible mutante    
                 if diagonal_counter >= 4:  
                     mutant_counter += 1      
