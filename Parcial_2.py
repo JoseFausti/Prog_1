@@ -40,7 +40,7 @@ def is_mutant(dna):
             if rows[i] == rows[i+1]:
                 row_counter += 1
                 # Posible mutante    
-                if row_counter >= 4:  
+                if row_counter == 4:  
                     mutant_counter += 1  
     # Verticales
     for columns in range(6): # Toma la longitud de la primer fila de la lista
@@ -50,7 +50,7 @@ def is_mutant(dna):
             if dna[rows][columns] == dna[rows+1][columns]:
                 column_counter +=1
                 # Posible mutante
-                if column_counter >= 4:
+                if column_counter == 4:
                     mutant_counter += 1
     # Diagonales                
     #----------------------------------#
@@ -62,7 +62,7 @@ def is_mutant(dna):
             if dna[i][j] == dna[i + 1][j + 1] == dna[i + 2][j + 2] == dna[i + 3][j + 3]:
                 diagonal_counter += 3
                 # Posible mutante    
-                if diagonal_counter >= 4:  
+                if diagonal_counter == 4:  
                     mutant_counter += 1  
     #----------------------------------# 
     # Diagonal Opuesta 
@@ -73,7 +73,7 @@ def is_mutant(dna):
             if dna[i][j] == dna[i + 1][j - 1] == dna[i + 2][j - 2] == dna[i + 3][j - 3]:
                 diagonal_counter += 3  
                 # Posible mutante    
-                if diagonal_counter >= 4:  
+                if diagonal_counter == 4:  
                     mutant_counter += 1      
     #----------------------------------#       
     # Retorno
