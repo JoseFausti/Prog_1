@@ -10,7 +10,6 @@
 # "únicamente si se envía el argumento ruedas. Ponla a
 # prueba con 0, 2 y 4 ruedas como valor.
 
-
 # CLASES
 
 class Vehicle:
@@ -69,7 +68,7 @@ def modifyied_catalogue(vehicles_list, ruedas ): # El valor del argumento debe c
         if ruedas is not None:
             print(f"Se han encontrado {len(list_object_vehicles)} vehículos con {ruedas} ruedas.")
     return
-
+    
 # Creacion de Objetos
 car_1 = Car('Rojo',4,160,1400)
 van_1 = Van('Azul',5,180,1500,500)
@@ -79,7 +78,7 @@ motorcycle_1 = Motorcycle('Negro',2,'Sport',250,1200)
 vehicles_list = [car_1,van_1,bicycle_1,motorcycle_1]
 # Llamado a la funcion
 catalogue(vehicles_list)
-# LLamado a la fincion modificada
+# LLamado a la funcion modificada
 modifyied_catalogue(vehicles_list,0)
 modifyied_catalogue(vehicles_list,2)
 modifyied_catalogue(vehicles_list,4)
